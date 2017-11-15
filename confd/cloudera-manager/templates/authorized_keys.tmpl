@@ -1,0 +1,2 @@
+{{range $dir := lsdir "/hosts/cdh-slave/"}}{{$pub_key := printf "/hosts/cdh-slave/%s/pub_key" $dir}}
+{{getv $pub_key}}{{end}} 

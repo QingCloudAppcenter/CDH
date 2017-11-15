@@ -1,0 +1,2 @@
+{{range $dir := lsdir "/hosts/cloudera-manager/"}}{{$pub_key := printf "/hosts/cloudera-manager/%s/pub_key" $dir}}
+{{getv $pub_key}}{{end}}

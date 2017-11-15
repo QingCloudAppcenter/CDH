@@ -1,0 +1,5 @@
+{{range $dir := lsdir "/hosts/cloudera-manager/"}}{{$ip := printf "/hosts/cloudera-manager/%s/ip" $dir}}{{$node_id:= printf "/hosts/cloudera-manager/%s/node_id" $dir}}
+{{getv $ip}} {{$node_id}}.cm.qingcloud.com{{end}}
+{{range $dir := lsdir "/hosts/cdh-slave/"}}{{$ip := printf "/hosts/cdh-slave/%s/ip" $dir}}{{$node_id:= printf "/hosts/cdh-slave/%s/node_id" $dir}}
+{{getv $ip}} {{$node_id}}.slave.qingcloud.com{{end}}
+127.0.0.1	localhost.localdomain localhost

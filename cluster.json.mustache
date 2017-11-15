@@ -1,0 +1,101 @@
+    {
+        "name": {{cluster.name}},
+        "description": {{cluster.description}},
+        "vxnet": {{cluster.vxnet}},
+        "links": {
+            "external_service":{{cluster.external_service}}
+        },
+        "nodes": [            
+            {
+                "role": "cloudera-manager",
+                "container": {
+                    "type": "kvm",
+                    "zone": "sh1a",
+                    "image": "img-a6ooqsjg"
+                },
+                "instance_class": {{cluster.cloudera-manager.instance_class}},
+                "count": 1,
+                "cpu": {{cluster.cloudera-manager.cpu}},
+                "memory": {{cluster.cloudera-manager.memory}},
+                "volume": {
+                    "size": {{cluster.cloudera-manager.volume_size}},
+                    "mount_point": "/opt",
+                    "filesystem": "ext4",
+                    "class": {{cluster.cloudera-manager.volume_class}}
+                },
+                "passphraseless":"ssh-rsa",
+                "user_access": true,
+                "services": {
+                    "init": {
+                        "cmd": "/opt/cdh/bin/init-cm.sh"
+                    },
+                    "start": {
+						"order": 0,
+                        "cmd": "/opt/cdh/bin/start-cm.sh"
+                    },
+					"restart": {
+						"cmd": "/opt/cdh/bin/restart-cm.sh"
+		            }
+                },
+	        	"health_check": {
+                    "enable": true,
+                    "interval_sec": 60,
+                    "timeout_sec": 10,
+                    "action_timeout_sec": 30,
+                    "healthy_threshold": 2,
+                    "unhealthy_threshold": 2,
+                    "check_cmd": "/opt/cdh/bin/check-cm.sh",
+                    "action_cmd": "/opt/cdh/bin/start-cm.sh"
+		        },
+		"advanced_actions": ["change_vxnet"]
+            },
+            {
+                "role": "cdh-slave",
+                "container": {
+                    "type": "kvm",
+                    "zone": "sh1a",
+                    "image": "img-twiba6rx"
+                },
+                "instance_class": {{cluster.cdh-slave.instance_class}},
+                "count": {{cluster.cdh-slave.count}},
+                "cpu": {{cluster.cdh-slave.cpu}},
+                "memory": {{cluster.cdh-slave.memory}},
+                "volume": {
+                    "size": {{cluster.cdh-slave.volume_size}},
+                    "mount_point": ["/opt"],
+                    "filesystem": "ext4",
+                    "class": {{cluster.cdh-slave.volume_class}}
+                },
+				"passphraseless":"ssh-rsa",
+                "user_access": true,
+                "services": {
+                    "init": {
+                        "cmd": "/opt/cdh/bin/init-slave.sh"
+                    },
+                    "start": {
+						"order": 0,
+                        "cmd": "/opt/cdh/bin/start-slave.sh"
+                    },
+					"restart": {
+						"cmd": "/opt/cdh/bin/restart-slave.sh"
+		            }					
+                },
+		       	"health_check": {
+                    "enable": true,
+                    "interval_sec": 60,
+                    "timeout_sec": 10,
+                    "action_timeout_sec": 30,
+                    "healthy_threshold": 2,
+                    "unhealthy_threshold": 2,
+                    "check_cmd": "/opt/cdh/bin/check-slave.sh",
+                    "action_cmd": "/opt/cdh/bin/start-slave.sh"
+		        },
+		"advanced_actions": ["change_vxnet", "scale_horizontal"]
+            },
+        "endpoints": {
+            "cdh.cloudera_manager": {
+                "port":7180,
+                "protocol": "tcp"
+            }
+        }
+    }
