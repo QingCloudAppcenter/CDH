@@ -1,5 +1,4 @@
 [template]
-src = "hosts.tmpl"
+src = "network.tmpl"
 dest = "/etc/sysconfig/network"
 keys = ["/",]
-reload_cmd = "service network restart"

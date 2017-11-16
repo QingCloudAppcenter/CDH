@@ -2,16 +2,13 @@
         "name": {{cluster.name}},
         "description": {{cluster.description}},
         "vxnet": {{cluster.vxnet}},
-        "links": {
-            "external_service":{{cluster.external_service}}
-        },
         "nodes": [            
             {
                 "role": "cloudera-manager",
                 "container": {
                     "type": "kvm",
-                    "zone": "sh1a",
-                    "image": "img-a6ooqsjg"
+                    "zone": "pek3a",
+                    "image": "img-6uc5fi1f"
                 },
                 "instance_class": {{cluster.cloudera-manager.instance_class}},
                 "count": 1,
@@ -19,7 +16,7 @@
                 "memory": {{cluster.cloudera-manager.memory}},
                 "volume": {
                     "size": {{cluster.cloudera-manager.volume_size}},
-                    "mount_point": "/opt",
+                    "mount_point": "/data",
                     "filesystem": "ext4",
                     "class": {{cluster.cloudera-manager.volume_class}}
                 },
@@ -44,8 +41,8 @@
                     "action_timeout_sec": 30,
                     "healthy_threshold": 2,
                     "unhealthy_threshold": 2,
-                    "check_cmd": "/opt/cdh/bin/check-cm.sh",
-                    "action_cmd": "/opt/cdh/bin/start-cm.sh"
+                    "check_cmd": "exit 0",
+                    "action_cmd": "exit 0"
 		        },
 		"advanced_actions": ["change_vxnet"]
             },
@@ -53,8 +50,8 @@
                 "role": "cdh-slave",
                 "container": {
                     "type": "kvm",
-                    "zone": "sh1a",
-                    "image": "img-twiba6rx"
+                    "zone": "pek3a",
+                    "image": "img-qcsbfntq"
                 },
                 "instance_class": {{cluster.cdh-slave.instance_class}},
                 "count": {{cluster.cdh-slave.count}},
@@ -62,7 +59,7 @@
                 "memory": {{cluster.cdh-slave.memory}},
                 "volume": {
                     "size": {{cluster.cdh-slave.volume_size}},
-                    "mount_point": ["/opt"],
+                    "mount_point": ["/data"],
                     "filesystem": "ext4",
                     "class": {{cluster.cdh-slave.volume_class}}
                 },
@@ -87,15 +84,16 @@
                     "action_timeout_sec": 30,
                     "healthy_threshold": 2,
                     "unhealthy_threshold": 2,
-                    "check_cmd": "/opt/cdh/bin/check-slave.sh",
-                    "action_cmd": "/opt/cdh/bin/start-slave.sh"
+                    "check_cmd": "exit 0",
+                    "action_cmd": "exit 0"
 		        },
-		"advanced_actions": ["change_vxnet", "scale_horizontal"]
-            },
-        "endpoints": {
-            "cdh.cloudera_manager": {
-                "port":7180,
-                "protocol": "tcp"
+		        "advanced_actions": ["change_vxnet", "scale_horizontal"]
             }
-        }
+        ],
+            "endpoints": {
+                "cdh.cloudera_manager": {
+                  "port":7180,
+                  "protocol": "tcp"
+                 }
+            }
     }

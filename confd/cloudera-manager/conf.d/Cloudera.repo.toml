@@ -1,5 +1,4 @@
 [template]
-src = "hosts.tmpl"
+src = "Cloudera.repo.tmpl"
 dest = "/etc/yum.repos.d/Cloudera.repo"
 keys = ["/",]
-reload_cmd = "service httpd restart"

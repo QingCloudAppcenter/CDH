@@ -5,8 +5,8 @@ ret_mysqld=0
 ret_httpd=0
 
 # check cloudera manager service status
-curl -o /dev/null -I $cm_ip:7180
-ret_cm=$?
+# curl -o /dev/null -I $cm_ip:7180
+# ret_cm=$?
 
 # check mysql status
 service mysqld status

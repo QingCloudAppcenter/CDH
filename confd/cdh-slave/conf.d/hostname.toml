@@ -2,4 +2,4 @@
 src = "hostname.tmpl"
 dest = "/tmp/hostname"
 keys = ["/",]
-reload_cmd = "hostname `cat /tmp/hostname`"
+reload_cmd = "/opt/cdh/bin/hostname.sh"
