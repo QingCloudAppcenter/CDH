@@ -17,13 +17,13 @@ ret_mysqld=$?
 ret_mysqld=$[10 * $ret_mysqld]
 
 # start cloudera manager service
-# curl -o /dev/null -I $cm_ip:7180
-# ret_cm=$?
+curl -o /dev/null -I $cm_ip:7180
+ret_cm=$?
 if [ "$ret_cm" -eq 0 ]
 then
     echo "Cloudera Manager is already running!"
 else
-    # service cloudera-scm-server start
+    service cloudera-scm-server start
     ret_cm=0
 fi
 

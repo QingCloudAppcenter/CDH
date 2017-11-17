@@ -4,10 +4,10 @@ role=$2
 if [ $# -lt 2 ];then
     echo error!
 else
-    scp ../app-agent-linux-amd64.tar.gz $server:/opt/ 
+    #scp ../app-agent-linux-amd64.tar.gz $server:/opt/ 
     #ssh $server "rm -rf /data/*; tar -zxf /cloudera-data.tar.gz -C /data/"
-    ssh $server "tar -zxf /opt/app-agent-linux-amd64.tar.gz -C /opt/; rm -rf /opt/app-agent-linux-amd64.tar.gz"
-    ssh $server "cd /opt/app-agent-linux-amd64; ./install.sh; cd /opt/; rm -rf /opt/app-agent-linux-amd64"
+    #ssh $server "tar -zxf /opt/app-agent-linux-amd64.tar.gz -C /opt/; rm -rf /opt/app-agent-linux-amd64.tar.gz"
+    #ssh $server "cd /opt/app-agent-linux-amd64; ./install.sh; cd /opt/; rm -rf /opt/app-agent-linux-amd64"
     if [ "x$role" = "xcm" ];then
         scp -r confd/cloudera-manager/* $server:/etc/confd/
     elif [ "x$role" = "xslave" ];then
