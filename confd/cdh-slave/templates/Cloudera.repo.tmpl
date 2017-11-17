@@ -1,0 +1,5 @@
+[Cloudera]
+name=repo
+{{range $dir := lsdir "/hosts/cloudera-manager/"}}{{$ip := printf "/hosts/cloudera-manager/%s/ip" $dir}}baseurl=http://{{getv $ip}}/cm5.13.0/{{end}}
+enabled=true
+gpgcheck=false
