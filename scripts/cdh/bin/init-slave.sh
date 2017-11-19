@@ -1,6 +1,7 @@
 #!/bin/bash
-tar -zxf /cloudera-data.tar.gz -C /data/
-rm -rf /cloudera-data.tar.gz 2>/dev/null
+tar -zxf /cloudera-slave.tar.gz -C /data/
+tar -zxf /var-slave.tar.gz -C /data/
+rm -rf /*.tar.gz 2>/dev/null
 ln -s /data/cloudera /opt/cloudera
 mkdir -p /data/dfs
 mkdir -p /data/yarn
