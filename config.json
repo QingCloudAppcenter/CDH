@@ -87,7 +87,7 @@
                     },
                     {
                         "key": "cdh-slave",
-			            "label": "cdh-slave",
+			            "label": "Slave",
                         "description": "CDH Slave properties",
                         "type": "array",
                         "properties": [
