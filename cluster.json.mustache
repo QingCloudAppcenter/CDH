@@ -41,8 +41,8 @@
                     "action_timeout_sec": 30,
                     "healthy_threshold": 2,
                     "unhealthy_threshold": 2,
-                    "check_cmd": "exit 0",
-                    "action_cmd": "exit 0"
+                    "check_cmd": "/opt/cdh/bin/check-cm.sh",
+                    "action_cmd": "/opt/cdh/bin/restart-cm.sh"
 		        },
 		"advanced_actions": ["change_vxnet"]
             },
@@ -84,8 +84,8 @@
                     "action_timeout_sec": 30,
                     "healthy_threshold": 2,
                     "unhealthy_threshold": 2,
-                    "check_cmd": "exit 0",
-                    "action_cmd": "exit 0"
+                    "check_cmd": "/opt/cdh/bin/check-slave.sh",
+                    "action_cmd": "/opt/cdh/bin/restart-slave.sh"
 		        },
 		        "advanced_actions": ["change_vxnet", "scale_horizontal"]
             }

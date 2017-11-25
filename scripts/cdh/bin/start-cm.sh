@@ -1,5 +1,5 @@
 #!/bin/bash
-#rm -rf /var.tar.gz 2>/dev/null
+rm -rf /*.tar.gz 2>/dev/null
 
 cm_ip="127.0.0.1"
 ret_cm=0
