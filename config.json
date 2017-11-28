@@ -142,7 +142,7 @@
                                 "description": "The volume size for each instance",
                                 "type": "integer",
                                 "step": 10,
-                                "default": 20,
+                                "default": 30,
                 				"min":	20,
                 				"max":	1000,
                                 "required": "yes"
@@ -150,6 +150,22 @@
                         ]
                     }
                 ]
-            }
+            },
+            {
+                "key": "env",
+                "description": "Service properties",
+                "type": "array",
+                "properties": [
+                    {
+                        "key": "allow_scale_in",
+                        "label": "Allow scale in",
+                        "description": "Allow deleting slave node or not",
+                        "type": "boolean",
+                        "default": false,
+                        "range": [true,false],
+                        "required": "yes"
+                    }
+                ]
+            }            
         ]
     }

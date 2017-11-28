@@ -8,7 +8,7 @@
                 "container": {
                     "type": "kvm",
                     "zone": "pek3a",
-                    "image": "img-ioc3gw28"
+                    "image": "img-r9k1f2n0"
                 },
                 "instance_class": {{cluster.cloudera-manager.instance_class}},
                 "count": 1,
@@ -51,7 +51,7 @@
                 "container": {
                     "type": "kvm",
                     "zone": "pek3a",
-                    "image": "img-qhyhdu8r"
+                    "image": "img-geso0i5o"
                 },
                 "instance_class": {{cluster.cdh-slave.instance_class}},
                 "count": {{cluster.cdh-slave.count}},
@@ -90,10 +90,13 @@
 		        "advanced_actions": ["change_vxnet", "scale_horizontal"]
             }
         ],
-            "endpoints": {
-                "cdh.cloudera_manager": {
-                  "port":7180,
-                  "protocol": "tcp"
-                 }
+        "env": {
+            "allow_scale_in": {{env.allow_scale_in}}
+            },
+        "endpoints": {
+            "cdh.cloudera_manager": {
+              "port":7180,
+              "protocol": "tcp"
             }
+        }
     }
