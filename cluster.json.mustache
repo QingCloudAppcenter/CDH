@@ -76,7 +76,10 @@
 					"restart": {
 						"cmd": "/opt/cdh/bin/restart-slave.sh"
 		            },
-                    "pre_check": "/opt/cdh/bin/scale-in-pre-check.sh"
+                    "scale_in": {
+                        "cmd": "exit 0",
+                        "pre_check": "/opt/cdh/bin/scale-in-pre-check.sh"
+                    }
                 },
 		       	"health_check": {
                     "enable": true,
