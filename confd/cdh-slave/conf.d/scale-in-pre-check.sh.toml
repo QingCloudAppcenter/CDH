@@ -1,0 +1,4 @@
+[template]
+src = "scale-in-pre-check.sh.tmpl"
+dest = "/opt/cdh/bin/scale-in-pre-check.sh"
+keys = ["/",]
