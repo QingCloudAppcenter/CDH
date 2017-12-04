@@ -17,7 +17,10 @@
 	"The volume type for each instance, such as high performance, high performance plus" : "数据盘分为性能型、超高性能型",
 	"volume size" : "节点容量",
 	"The volume size for each instance" : "节点总存储空间大小", 
-	"slave" : "从节点",
+	"Master" : "主节点",
+	"cloudera-manager" : "主节点",
+	"cdh-slave" : "从节点",
+	"Slave" : "从节点",
 	"err_code1": "如需删除从节点，请将该节点上的数据及服务妥善处理后，设置配置参数「允许横向缩容」为true, 再进行相关操作。操作完成后请将「允许横向缩容」设为false以避免误操作导致数据丢失！",
 	"Allow scale in": "允许横向缩容",
 	"Allow deleting slave node or not": "是否允许删除从节点。出于数据安全的考虑，默认不允许删除从节点，创建后如需删除从节点可随时更改此参数。"
