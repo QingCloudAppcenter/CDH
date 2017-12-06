@@ -41,7 +41,7 @@
                                 "label": "CPU",
                                 "description": "CPUs of each node",
                                 "type": "integer",
-                                "default": 2,
+                                "default": 4,
                                 "range": [2,4,8,12,16],
                                 "required": "yes"
                             },
