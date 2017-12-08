@@ -63,15 +63,7 @@
                                 "range": [0,1],
                                 "required": "yes"
                             },
-                            {
-                                "key": "volume_class",
-                                "label": "volume class",
-                                "description": "The volume type for each instance, such as high performance, high performance plus",
-                                "type": "integer",
-                                "default": 3,
-                                "range": [0,3],
-                                "required": "yes"
-                            },
+
                             {
                                 "key": "volume_size",
                                 "label": "volume size",
@@ -125,15 +117,6 @@
                                 "type": "integer",
                                 "default": 1,
                                 "range": [0,1],
-                                "required": "yes"
-                            },
-                            {
-                                "key": "volume_class",
-                                "label": "volume class",
-                                "description": "The volume type for each instance, such as high performance, high performance plus",
-                                "type": "integer",
-                                "default": 3,
-                                "range": [0,3],
                                 "required": "yes"
                             },
                             {

@@ -17,8 +17,7 @@
                 "volume": {
                     "size": {{cluster.cloudera-manager.volume_size}},
                     "mount_point": "/data",
-                    "filesystem": "ext4",
-                    "class": {{cluster.cloudera-manager.volume_class}}
+                    "filesystem": "ext4"
                 },
                 "passphraseless":"ssh-rsa",
                 "user_access": true,
@@ -60,8 +59,7 @@
                 "volume": {
                     "size": {{cluster.cdh-slave.volume_size}},
                     "mount_point": ["/data"],
-                    "filesystem": "ext4",
-                    "class": {{cluster.cdh-slave.volume_class}}
+                    "filesystem": "ext4"
                 },
 				"passphraseless":"ssh-rsa",
                 "user_access": true,
